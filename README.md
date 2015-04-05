@@ -1,9 +1,28 @@
 # Vert.x Example Maven Project
 
-Example project for creating a Vert.x module with a Gradle build.
+Test app using Vert.x and react js to create an Isomorphish web-app.
 
-By default this module contains a simple Java verticle which listens on the event bus and responds to `ping!`
-messages with `pong!`.
+## How to run
 
-This example also shows you how to write tests in Java, Groovy, Ruby and Python
+Running the app is currently very clunky:
 
+In root of app:
+```
+    mvn clean package vertx:runMod
+```
+
+next:
+```
+    cd target
+```
+
+next:
+```
+    vertx runmod com.inkfish~isomorphic-reactjs~0.0.1 -cluster 
+```
+
+In a separate window:
+```
+    cd src/main/resources
+    vertx run morpher.js -cluster
+```
