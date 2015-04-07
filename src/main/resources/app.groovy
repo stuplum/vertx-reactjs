@@ -2,10 +2,8 @@ package templates.groovyscript
 
 import com.jetdrone.vertx.yoke.middleware.*
 import com.jetdrone.vertx.yoke.GYoke
-import com.jetdrone.vertx.yoke.engine.GroovyTemplateEngine
 import com.jetdrone.vertx.yoke.extras.engine.*
 import com.jetdrone.vertx.yoke.engine.HandlebarsEngine
-import com.jetdrone.vertx.yoke.engine.Jade4JEngine
 
 import groovy.json.*
 

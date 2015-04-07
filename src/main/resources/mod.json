@@ -1,4 +1,4 @@
 {
-  "main": "app.groovy",
+  "main": "app.js",
   "includes": "com.jetdrone~yoke~2.0.17"
 }

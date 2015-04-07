@@ -1,9 +1,7 @@
 var log = require('vertx/console').log,
     eb  = require('vertx/event_bus');
 
-var _          = require('./lib/vendor/lodash.js'),
-    React      = require('./lib/vendor/reactjs.js'),
-    SearchPage = require('./lib/page/search.js');
+var morph = require('./lib/lib/morph.js').morph;
 
 function marshallMessage(message) {
 
@@ -17,16 +15,13 @@ function marshallMessage(message) {
     };
 }
 
-
 eb.registerHandler('compile-template', function(message, replier) {
 
-    var model      = marshallMessage(message),
-        Page       = React.createElement(SearchPage, model),
-        staticHTML = React.renderToString(Page);
+    var morphed = morph(marshallMessage(message));
 
-    log('[' + model.uuid + '] Incoming message');
+    log('[' + morphed.uuid + '] Incoming message');
 
-    replier(JSON.stringify({ uuid: model.uuid, html: staticHTML }));
+    replier(JSON.stringify({ uuid: morphed.uuid, html: morphed.html }));
 });
 
 log('React template compiler loaded and running.....');
